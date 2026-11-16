@@ -343,13 +343,17 @@
   .grid.story .card:nth-child(4), .grid.story .card:nth-child(5), .grid.story .card:nth-child(9), .grid.story .card:nth-child(10) { grid-column: span 3; }
   @media (max-width: 860px) { .grid.story { grid-template-columns: 1fr; } .grid.story .card { grid-column: auto !important; } }
   .card-note { margin: 0; padding: .6rem .9rem .85rem; font-size: .78rem; line-height: 1.45; color: var(--muted); border-top: 1px solid var(--line); text-align: center; }
-  .grid.posted { columns: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; align-items: start; max-width: 64rem; margin-inline: auto; }
+  .grid.posted { columns: auto; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; align-items: stretch; }
   .grid.posted .card { margin: 0; }
   .grid.posted .acts { gap: .35rem; padding: .6rem .5rem; }
   .grid.posted .acts .btn { font-size: .68rem; padding: .4rem .55rem; letter-spacing: .06em; }
   .grid.posted .card-note { font-size: .68rem; padding: .5rem .6rem; line-height: 1.4; }
-  @media (max-width: 700px) { .grid.posted { grid-template-columns: 1fr; gap: 1.25rem; } }
-  .grid.posted .card-note { font-size: .8rem !important; }
+  @media (max-width: 860px) { .grid.posted { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; } }
+  /* uniform tiles: every meme gets the same square frame; whole image shown, never cropped */
+  .grid.posted .card { display: flex; flex-direction: column; margin: 0 !important; }
+  .grid.posted .thumb { position: relative; aspect-ratio: 1 / 1; overflow: hidden; background: #07140c; }
+  .grid.posted .thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+  .grid.posted .card-note { margin-top: auto; }
   .join-row { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-top: 2.25rem; }
   .gallery-note { margin-top: 1rem; }
   dialog#lightbox { border: 0; padding: 0; background: transparent; color: var(--ink); max-width: 100vw; max-height: 100vh; width: 100%; height: 100%; margin: 0; }
